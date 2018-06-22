@@ -10,9 +10,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 
-/**
- * Created by LaunchCode
- */
 public class JobForm {
 
     @NotNull
@@ -22,21 +19,21 @@ public class JobForm {
     @NotNull
     private int employerId;
 
-    @NotNull
-    private int locationId;
-
-    @NotNull
-    private int coreCompetencyId;
-
-    @NotNull
-    private int positionTypeId;
-
-
     /*
-        TODO #3 - Included other fields needed to create a job,
-        with correct validation attributes and display names.
+        TODO #3 - Included other fields needed to create a job, with correct validation attributes and display names.
         Don't forget to add getters and setters
+        * DONE *
      */
+
+    @NotNull
+    private String location;
+
+    @NotNull
+    private String coreCompetency;
+
+    @NotNull
+    private String positionType;
+
 
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
@@ -49,8 +46,8 @@ public class JobForm {
 
         /*
             TODO #4 - populate the other ArrayList collections needed in the view
+            * DONE *
         */
-
         employers = jobData.getEmployers().findAll();
         locations = jobData.getLocations().findAll();
         coreCompetencies = jobData.getCoreCompetencies().findAll();
@@ -72,6 +69,30 @@ public class JobForm {
 
     public void setEmployerId(int employerId) {
         this.employerId = employerId;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(String coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
+
+    public String getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(String positionType) {
+        this.positionType = positionType;
     }
 
     public ArrayList<Employer> getEmployers() {
@@ -106,15 +127,4 @@ public class JobForm {
         this.positionTypes = positionTypes;
     }
 
-    public int getLocationId() {
-        return 0;
-    }
-
-    public int getCoreCompetencyId() {
-        return 0;
-    }
-
-    public int getPositionTypeId() {
-        return 0;
-    }
 }
